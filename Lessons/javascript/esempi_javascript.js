@@ -1,4 +1,4 @@
-/************************************************/
+/************************************************
 // Symbols
 
 let strname = "a";
@@ -362,7 +362,7 @@ console.log( r.toString() );
 /**/
 
 
-/************************************************
+/************************************************/
 // Subclassing
 // We create a class RangeStep to represent a range of values
 // with a certain step (ex: RangeStep(2,8,2) = [2 4 6 8])
