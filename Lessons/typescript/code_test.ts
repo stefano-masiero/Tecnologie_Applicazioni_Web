@@ -266,7 +266,7 @@ var s: Snake = new Snake("Alex");
 s.move(10);
 /**/
 
-/***************************************************/
+/***************************************************
 // Class modifiers, parameter properties, getters setters
 
 class Person {
@@ -303,7 +303,7 @@ e.indroduce_myself();
 
 /**/
 
-/***************************************************
+/***************************************************/
 // Generics
 
 // We define a generic function reverse in which we refer

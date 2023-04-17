@@ -21,7 +21,7 @@ Character.prototype = (function() {
 
 
 var asSpellCaster = function() {
-    this.magictype = this.magictype || "fire" 
+    this.magictype = this.magictype || "fire" //if(this.magictype === undefined) this.magictype = "fire"
 
     this.castSpell = function() {
         if( this.getMana() > 10 ) {
