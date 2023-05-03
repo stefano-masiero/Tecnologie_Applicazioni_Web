@@ -1,0 +1,28 @@
+<div class="container" style="padding: 20px">
+  <div class="jumbotron">
+    <h1>Welcome to {{ title }}!</h1>
+  </div>
+
+  <div *ngIf="num_products()>2" class="alert alert-success" role="alert" >So many products!</div>
+
+  <div [ngSwitch]="num_products()">
+    <span *ngSwitchCase="0" class="alert alert-primary" role="alert" >Enter the product name and click Add</span>
+    <span *ngSwitchCase="1">Only one product</span>
+    <span *ngSwitchCase="2">Only two products</span>
+    <span *ngSwitchDefault>More than 2 products</span>
+  </div>
+
+  <div *ngFor="let product of get_products() " class="card" style="margin: 5px" > 
+    <div class="card-body">
+      <button type="button" class="btn btn-outline-danger btn-sm" (click)="delete_product(product.id);">Delete</button>
+      {{ product.name }}
+    </div>
+  </div>
+
+  <div class="input-group mb-3" style="margin-top: 15px" >
+      <input type="text" class="form-control" #productname placeholder="item" (keyup.enter)="add_product(productname.value); productname.value=''" />
+      <div class="input-group-append">
+        <button class="btn btn-outline-secondary" type="button" (click)="add_product(productname.value); productname.value=''">Add</button>
+      </div>
+  </div>
+</div>
