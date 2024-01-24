@@ -1,0 +1,7 @@
+#responsive{
+    width: 100%;
+    overflow-x: auto;
+}
+.mat-mdc-row:hover {
+    background-color: #ebebeb;
+}

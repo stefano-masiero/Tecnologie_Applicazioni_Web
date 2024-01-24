@@ -1,0 +1,78 @@
+{
+  "name": "angular",
+  "version": "1.0.0",
+  "main": "main.js",
+  "description": "App For Managing your Restaurant",
+  "author": "Stefano Masiero & Maksym Novytskyy",
+  "scripts": {
+    "electron": "ng build --base-href ./ && electron .",
+    "package": "ng build --base-href ./ && electron-builder",
+    "package-mac": "ng build --base-href ./ && electron-builder --mac",
+    "package-win": "ng build --base-href ./ && electron-builder --win",
+    "package-linux": "ng build --base-href ./ && electron-builder --linux"
+  },
+  "build": {
+    "appId": "com.example.cookhub",
+    "productName": "CookHub",
+    
+    "files": [
+      "app/*.js*",
+      "app/*/*.js*",
+      "!**/*.ts",
+      "!**/*.map",
+      "main.js",
+      {
+          "from": "dist",
+          "filter": ["**/*"],
+          "to": "app"
+      }
+  ],
+    "directories": {
+      "output": "dist"
+    },
+    "mac":{
+      "icon": "src/assets/images/logo.png"
+    },
+    "win":{
+      "icon": "src/assets/images/logo.png"
+    },
+    "linux":{
+      "icon": "src/assets/images/logo.png"
+    }
+  },  
+  "private": true,
+  "dependencies": {
+    "@angular/animations": "^17.0.9",
+    "@angular/cdk": "~17.0.5",
+    "@angular/common": "^17.0.9",
+    "@angular/compiler": "^17.0.9",
+    "@angular/core": "^17.0.9",
+    "@angular/forms": "^17.0.9",
+    "@angular/material": "~17.0.5",
+    "@angular/platform-browser": "^17.0.9",
+    "@angular/platform-browser-dynamic": "^17.0.9",
+    "@angular/router": "^17.0.9",
+    "chart.js": "^4.4.1",
+    "jwt-decode": "^3.1.2",
+    "ngx-toastr": "^18.0.0",
+    "rxjs": "~7.8.0",
+    "socket.io-client": "^4.7.2",
+    "tslib": "^2.3.0",
+    "zone.js": "~0.14.3"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "^17.0.10",
+    "@angular/cli": "^17.0.10",
+    "@angular/compiler-cli": "^17.0.9",
+    "@types/jasmine": "~4.3.0",
+    "jasmine-core": "~4.6.0",
+    "karma": "~6.4.0",
+    "karma-chrome-launcher": "~3.2.0",
+    "karma-coverage": "~2.2.0",
+    "karma-jasmine": "~5.1.0",
+    "karma-jasmine-html-reporter": "~2.1.0",
+    "typescript": "~5.2.2",
+    "electron": "^27.1.2",
+    "electron-builder": "^22.11.7"
+  }
+}

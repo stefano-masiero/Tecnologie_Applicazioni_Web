@@ -1,0 +1,44 @@
+.pannel-recipes {
+    background-color: #f0f0f0;
+}
+
+
+
+.flex-grow {
+  flex-grow: 1; 
+}
+
+.full-width {
+  width: 100%; 
+}
+
+.ml-2 {
+  margin-left: 8px; 
+}
+
+
+.mod-container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between; 
+  }
+  
+  .mod-details {
+    flex-grow: 1; 
+  }
+  
+  .mod-button {
+    margin-left: 8px; 
+  }
+
+  mat-card-title{
+    color:red;
+  }
+  #sub-title{
+    color:blue;
+  }
+
+  .auto-size{
+    height: auto;
+  }
+  

@@ -1,0 +1,106 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title id="title">
+            Cashout Orders
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <ng-container *ngIf="orders.length==0">
+            <div class="container">
+                <div class="start">
+                    <strong>There are no orders</strong>
+                </div>
+            </div>
+        </ng-container>
+
+        <mat-accordion multi>
+            <ng-container *ngFor="let ord of orders; let i = index">
+
+                <mat-expansion-panel [expanded]="opened[i]" (click)="recordOpen(i)">
+                    <mat-expansion-panel-header [ngClass]="{'auto-size': pageInfo.currentBreakpoint == Breakpoints.Handset}">
+                        <mat-panel-title>
+                            Order of {{ord.tablesNames}}
+                        </mat-panel-title>
+                        <mat-panel-description>
+                            Number of courses: {{ord.courses.length}}
+                        </mat-panel-description>
+                        <mat-panel-description>
+                            Number of people: {{ord.guests}}
+                        </mat-panel-description>
+
+                        <mat-panel-description>
+                            Final Charge: {{ord.final_price}}&euro;
+                        </mat-panel-description>
+                    </mat-expansion-panel-header>
+                    <mat-divider></mat-divider>
+
+                    <b id="sub-title">General Info of Orders:</b>
+                    <br>
+                    <b>Guests:</b> {{ord.guests}} people
+                    <br>
+                    <b>Capacity:</b> {{ord.capacity}} people
+                    <br>
+                    <b>Tables:</b> {{ord.tablesNames}}
+                    <br>
+                    <b>Room:</b> {{ord.roomName}}
+                    <br>
+                    <b>Service charge:</b> {{ord.serviceCharge}}&euro;
+
+
+
+                    <mat-divider></mat-divider>
+
+                    <b id="sub-title">Courses:</b>
+                    <br>
+                    <ng-container *ngFor="let course of ord.courses; let j = index">
+                        &nbsp;&nbsp;&nbsp;
+                        <ng-container *ngIf="course.logs_course?.served_course != undefined">
+                            <b style="color:green">Course served by:</b> {{course.logs_course?.served_course?.actor?.username}}
+                            <b style="color:green">At:</b> {{course.logs_course?.served_course?.timestamp | date: 'HH:mm'}}
+                            <br>
+                        </ng-container>
+                        <ng-container *ngIf="course.logs_course?.served_course == undefined">
+                            <b style="color:red">Course not served yet</b>
+                            <br>
+                        </ng-container>
+                        &nbsp;&nbsp;&nbsp;
+                        <b style="color:oran">Course number:</b> {{j+1}}
+                        <br>
+                        <ng-container *ngFor="let dish of course.dishes_obj">
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <b>Dish:</b> {{dish.name}}
+                            <ng-container *ngIf="pageInfo.currentBreakpoint === Breakpoints.Handset"><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</ng-container>
+                            <b>Price of dish:</b> {{dish.actual_price}}&euro;
+                            <br>
+                            <ng-container *ngIf="dish.modifications != undefined">
+                                <ng-container *ngFor="let mod of dish.modifications">
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <b>Modification:</b> {{mod.name}}
+                                    <b>Type:</b> {{mod.type}}
+                                    {{mod.price}}&euro;
+                                    <br>
+                                </ng-container>
+                            </ng-container>
+                        </ng-container>
+
+
+                    </ng-container>
+                    <mat-divider></mat-divider>
+                    <div class="container-end">
+                        
+                    <br>
+                    <mark><b>Final Price:</b> {{ord.final_price}}&euro;</mark>
+                    </div>
+                    <ng-container *ngIf="ord.ready! == true && ord.courses.length != 0">
+                        <mat-action-row>
+                            <button mat-raised-button color="primary" (click)="cashoutOrder(ord._id!)">Cashout Order</button>
+                        </mat-action-row>
+                    </ng-container>
+
+                </mat-expansion-panel>
+            </ng-container>
+        </mat-accordion>
+
+
+    </mat-card-content>
+</mat-card>

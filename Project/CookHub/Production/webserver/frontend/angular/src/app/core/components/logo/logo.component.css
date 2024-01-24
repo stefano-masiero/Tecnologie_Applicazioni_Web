@@ -1,0 +1,36 @@
+.spacer {
+    flex: 1 1 auto;
+  }
+  
+  .centered-container {
+    width: 100%;
+    /* Set the width of the container */
+    text-align: center;
+    /* Center the text horizontally */
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    height: 100%;
+    margin: 0;
+  
+  }
+  
+  .logo {
+    font-size: 3em;
+    color: #673ab7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 100px);
+  }
+  
+  .letter {
+    font-family: impact;
+    margin: 10px;
+  }
+  
+  .spacer {
+    flex: 1 1 auto;
+  }
