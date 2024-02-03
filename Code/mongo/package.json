@@ -5,7 +5,7 @@
     "author": "Filippo Bergamasco",
     "dependencies": {
         "colors": "^1.4.0",
-        "mongoose": "^5.12.3"
+        "mongoose": "^5.13.20"
     },
     "devDependencies": {
         "@types/node": "^18.0.0",
